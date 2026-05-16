@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-tech: "Space Grotesk", sans-serif;
+  
+  --color-beru-black: #080010;
+  --color-beru-purple: #a855f7;
+  --color-beru-glow: rgba(168, 85, 247, 0.6);
+}
+
+:root {
+  background: radial-gradient(circle at center, #2d005c 0%, #080010 100%);
+  color: #fff;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: radial-gradient(circle at center, #2d005c 0%, #080010 100%);
+  color: #fff;
+  min-height: 100vh;
+  cursor: none;
+  line-height: 1.6;
+}
+
+a, button, [role="button"], .interactive {
+  cursor: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.8),
+    0 0 20px rgba(168, 85, 247, 0.4);
+  position: relative;
+  z-index: 10;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.7;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 5vw, 4rem);
+  line-height: 1.2;
+}
+
+.glow-text {
+  text-shadow: 
+    0 0 10px rgba(168, 85, 247, 0.6),
+    0 0 20px rgba(168, 85, 247, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.purple-gradient {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+}
+
+.shadow-aura {
+  filter: drop-shadow(0 0 15px var(--color-beru-glow));
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0015;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  z-index: 10;
+  box-shadow: 
+    0 0 40px rgba(168, 85, 247, 0.03);
+}
+
+.eternal-title {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 4vw, 4rem);
+}
+
+.hero-title {
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  line-height: 0.9;
+}
+
+.section-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 40px 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #080010;
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    min-height: 100vh;
+  }
+}
+
+.section-container::before {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(150px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section-content-glow {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section-content-glow {
+    border-radius: 40px;
+    padding: 3rem;
+  }
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bg-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.hd-sharpen {
+  filter: contrast(1.1) brightness(1.05) saturate(1.1);
+  transform: translateZ(0);
+  will-change: filter;
+}
+
+/* Premium Multimedia Background Utilities */
+.bg-multimedia-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.bg-multimedia-asset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.7s ease-in-out;
+  transform: translateZ(0) scale(1.18);
+  transform-origin: center;
+  will-change: transform, scale;
+}
+
+.bg-multimedia-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 0, 16, 0.7) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(8, 0, 16, 0.8) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
